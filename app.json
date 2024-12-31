@@ -1,0 +1,68 @@
+{
+  "expo": {
+    "name": "palloo_paise",
+    "slug": "palloo_paise",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/icon.png",
+    "scheme": "your-app-scheme",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.galaxies.palloo_paise",
+      "infoPlist": {
+        "NSMicrophoneUsageDescription": "Allow $(PRODUCT_NAME) to access your microphone",
+        "NSSpeechRecognitionUsageDescription": "Allow $(PRODUCT_NAME) to access speech recognition"
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/palloologo.png",
+        "backgroundColor": "#ffffff"
+      },
+      "package": "com.galaxies.palloo_paise",
+      "permissions": [
+        "android.permission.RECORD_AUDIO",
+        "android.permission.INTERNET"
+      ]
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-build-properties",
+        {
+          "ios": {
+            "useFrameworks": "static"
+          }
+        }
+      ],
+      "expo-font",
+      [
+        "@react-native-voice/voice",
+        {
+          "microphonePermission": "Allow $(PRODUCT_NAME) to access your microphone",
+          "speechRecognitionPermission": "Allow $(PRODUCT_NAME) to access speech recognition"
+        }
+      ]
+    ],
+    "experiments": {
+      "tsconfigPaths": true
+    },
+    "splash": {
+      "image": "./assets/images/palloologo.png",
+      "backgroundColor": "#e2e3f7",
+      "resizeMode": "contain"
+    },
+    "fonts": [
+      {
+        "NotoSans": "./assets/fonts/NotoSansEnglish.ttf",
+        "NotoSansTamil": "./assets/fonts/NotoSansTamil.ttf",
+        "NotoSansMalayalam": "./assets/fonts/NotoSansMalayalam.ttf",
+        "NotoSansDevanagari": "./assets/fonts/NotoSansDevanagari.ttf",
+        "NotoSansTelugu": "./assets/fonts/NotoSansTelugu.ttf",
+        "NotoSansKannada": "./assets/fonts/NotoSansKannada.ttf"
+      }
+    ]
+  }
+}
