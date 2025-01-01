@@ -1,38 +1,44 @@
-import { StyleSheet, View, Text, ScrollView, Pressable } from 'react-native';
+import { StyleSheet, View, Text, ScrollView } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import { Picker } from '@react-native-picker/picker';
+import { useSettings } from '../../context/settings';
 
 export default function Settings() {
-  const settingsOptions = [
-    { title: 'Account', icon: 'person', color: '#4CAF50' },
-    { title: 'Notifications', icon: 'notifications', color: '#FF9800' },
-    { title: 'Categories', icon: 'list', color: '#2196F3' },
-    { title: 'Security', icon: 'shield', color: '#9C27B0' },
-    { title: 'Appearance', icon: 'color-palette', color: '#F44336' },
-    { title: 'Help & Support', icon: 'help-circle', color: '#607D8B' },
-  ];
+  const { language, setLanguage } = useSettings();
+
+  const handleLanguageChange = (value: string) => {
+    console.log('Changing language to:', value);
+    setLanguage(value);
+  };
 
   return (
     <View style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.headerTitle}>Settings</Text>
-      </View>
-
-      <ScrollView style={styles.settingsList}>
-        {settingsOptions.map((option, index) => (
-          <Pressable 
-            key={index}
-            style={styles.settingItem}
-            onPress={() => {/* Handle navigation */}}
-          >
-            <View style={[styles.iconContainer, { backgroundColor: option.color + '20' }]}>
-              <Ionicons name={option.icon as keyof typeof Ionicons.glyphMap} size={24} color={option.color} />
-            </View>
+      <ScrollView style={styles.settingsList} showsVerticalScrollIndicator={false}>
+        {/* Language Section First */}
+        <View style={styles.section}>
+          <Text style={styles.sectionTitle}>
+            <Ionicons name="language" size={20} color="#555cb3" />
+            {" "}Language
+          </Text>
+          
+          <View style={styles.settingItem}>
             <View style={styles.settingDetails}>
-              <Text style={styles.settingTitle}>{option.title}</Text>
+              <Text style={styles.settingTitle}>Select Language</Text>
+              <Text style={styles.settingDescription}>Choose your preferred language</Text>
+              <View style={styles.pickerContainer}>
+                <Picker
+                  selectedValue={language}
+                  onValueChange={handleLanguageChange}
+                  style={styles.picker}
+                >
+                  <Picker.Item label="English" value="en" />
+                  <Picker.Item label="हिंदी" value="hi" />
+                  <Picker.Item label="தமிழ்" value="ta" />
+                </Picker>
+              </View>
             </View>
-            <Ionicons name="chevron-forward" size={24} color="#555cb3" />
-          </Pressable>
-        ))}
+          </View>
+        </View>
       </ScrollView>
     </View>
   );
@@ -41,36 +47,30 @@ export default function Settings() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#e2e3f7',
-  },
-  header: {
-    backgroundColor: '#555cb3',
-    padding: 20,
-    paddingTop: 60,
-    borderBottomLeftRadius: 25,
-    borderBottomRightRadius: 25,
-  },
-  headerTitle: {
-    color: '#e2e3f7',
-    fontSize: 24,
-    fontWeight: 'bold',
+    backgroundColor: '#f8f9fa',
   },
   settingsList: {
     flex: 1,
-    padding: 20,
+  },
+  section: {
+    backgroundColor: 'white',
+    borderRadius: 12,
+    margin: 15,
+    padding: 15,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 3,
+  },
+  sectionTitle: {
+    fontSize: 18,
+    fontWeight: '600',
+    marginBottom: 15,
+    color: '#333',
   },
   settingItem: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: 'white',
-    padding: 15,
-    borderRadius: 12,
     marginBottom: 10,
-  },
-  iconContainer: {
-    padding: 10,
-    borderRadius: 10,
-    marginRight: 15,
   },
   settingDetails: {
     flex: 1,
@@ -78,6 +78,20 @@ const styles = StyleSheet.create({
   settingTitle: {
     fontSize: 16,
     fontWeight: '500',
-    color: '#555cb3',
+    marginBottom: 4,
+  },
+  settingDescription: {
+    fontSize: 14,
+    color: '#666',
+    marginBottom: 10,
+  },
+  pickerContainer: {
+    borderRadius: 8,
+    backgroundColor: '#f5f5f5',
+    overflow: 'hidden',
+  },
+  picker: {
+    height: 50,
+    width: '100%',
   },
 });

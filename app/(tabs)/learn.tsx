@@ -3,53 +3,85 @@ import { Image } from 'expo-image';
 import { router } from 'expo-router';
 import lessons from '../../assets/data/lessons.json';
 import { Ionicons } from '@expo/vector-icons';
+import { useSettings } from '../../context/settings';
+import { useEffect } from 'react';
+
+type Language = 'en' | 'hi' | 'ta';
 
 export default function LearnPage() {
+  const { language } = useSettings();
+
+  useEffect(() => {
+    console.log('Current language in Learn:', language);
+  }, [language]);
+
   return (
     <ScrollView style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.headerTitle}>Learning Hub</Text>
-        <Text style={styles.headerSubtitle}>Build your financial knowledge</Text>
+        <Text style={styles.headerTitle}>
+          {language === 'hi' ? 'सीखने का केंद्र' : 'Learning Hub'}
+        </Text>
+        <Text style={styles.headerSubtitle}>
+          {language === 'hi' ? 'अपना वित्तीय ज्ञान बढ़ाएं' : 'Build your financial knowledge'}
+        </Text>
       </View>
 
+      <Pressable 
+        style={styles.schemesCard}
+        onPress={() => router.push('/schemes')}
+      >
+        <View style={styles.schemesContent}>
+          <View>
+            <Text style={styles.schemesTitle}>
+              {language === 'hi' ? 'सरकारी योजनाएं' : 'Government Schemes'}
+            </Text>
+            <Text style={styles.schemesSubtitle}>
+              {language === 'hi' ? 'आपके लिए उपलब्ध योजनाएं खोजें' : 'Discover schemes available for you'}
+            </Text>
+          </View>
+          <Ionicons name="chevron-forward" size={24} color="#555cb3" />
+        </View>
+      </Pressable>
+
       <View style={styles.lessonGrid}>
-        {lessons.lessons.map((lesson) => (
-          <Pressable 
-            key={lesson.contentId}
-            style={styles.lessonCard}
-            onPress={() => router.push(`/lesson/${lesson.contentId}`)}
-          >
-            <Image
-              source={lesson.mediaUrls[0]}
-              style={styles.lessonImage}
-              contentFit="cover"
-            />
-            <View style={styles.lessonContent}>
-              <Text style={styles.lessonTitle}>
-                {lesson.translations.en.title}
-              </Text>
-              <View style={styles.lessonMeta}>
-                <View style={styles.difficultyBadge}>
-                  <Ionicons 
-                    name="star" 
-                    size={12} 
-                    color="#FFD700" 
-                  />
-                  <Text style={styles.difficultyText}>
-                    Level {lesson.difficulty}
-                  </Text>
-                </View>
-                <View style={styles.tagContainer}>
-                  {lesson.tags.slice(0, 2).map((tag, index) => (
-                    <Text key={index} style={styles.tag}>
-                      {tag}
+        {lessons.lessons.map((lesson) => {
+          const translation = lesson.translations[language as Language] || lesson.translations.en;
+          console.log('Lesson translation:', translation);
+          
+          return (
+            <Pressable 
+              key={lesson.contentId}
+              style={styles.lessonCard}
+              onPress={() => router.push(`/lesson/${lesson.contentId}`)}
+            >
+              <Image
+                source={lesson.mediaUrls[0]}
+                style={styles.lessonImage}
+                contentFit="cover"
+              />
+              <View style={styles.lessonContent}>
+                <Text style={styles.lessonTitle}>
+                  {translation.title}
+                </Text>
+                <View style={styles.lessonMeta}>
+                  <View style={styles.difficultyBadge}>
+                    <Ionicons name="star" size={12} color="#FFD700" />
+                    <Text style={styles.difficultyText}>
+                      Level {lesson.difficulty}
                     </Text>
-                  ))}
+                  </View>
+                  <View style={styles.tagContainer}>
+                    {lesson.tags.slice(0, 2).map((tag, index) => (
+                      <Text key={index} style={styles.tag}>
+                        {tag}
+                      </Text>
+                    ))}
+                  </View>
                 </View>
               </View>
-            </View>
-          </Pressable>
-        ))}
+            </Pressable>
+          );
+        })}
       </View>
     </ScrollView>
   );
@@ -129,5 +161,37 @@ const styles = StyleSheet.create({
     paddingVertical: 4,
     borderRadius: 12,
     marginLeft: 8,
+  },
+  schemesCard: {
+    backgroundColor: 'white',
+    margin: 15,
+    marginTop: 20,
+    borderRadius: 16,
+    overflow: 'hidden',
+    elevation: 4,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 3 },
+    shadowOpacity: 0.15,
+    shadowRadius: 8,
+    borderWidth: 1,
+    borderColor: 'rgba(85, 92, 179, 0.1)',
+  },
+  schemesContent: {
+    padding: 24,
+    paddingVertical: 28,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    backgroundColor: 'rgba(85, 92, 179, 0.03)',
+  },
+  schemesTitle: {
+    fontSize: 20,
+    fontWeight: '600',
+    color: '#555cb3',
+    marginBottom: 4,
+  },
+  schemesSubtitle: {
+    fontSize: 14,
+    color: '#666',
   },
 });

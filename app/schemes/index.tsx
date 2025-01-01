@@ -3,8 +3,13 @@ import { Image } from 'expo-image';
 import { router } from 'expo-router';
 import schemes from '../../assets/data/schemes.json';
 import { Ionicons } from '@expo/vector-icons';
+import { useSettings } from '../../context/settings';
+
+type Language = 'en' | 'hi' | 'ta';
 
 export default function SchemesPage() {
+  const { language } = useSettings();
+
   return (
     <ScrollView style={styles.container}>
       <View style={styles.header}>
@@ -13,43 +18,47 @@ export default function SchemesPage() {
       </View>
 
       <View style={styles.schemeGrid}>
-        {schemes.schemes.map((scheme) => (
-          <Pressable 
-            key={scheme.schemeId}
-            style={styles.schemeCard}
-            onPress={() => router.push(`/schemes/${scheme.schemeId}`)}
-          >
-            <View style={styles.cardContent}>
-              <View style={styles.titleContainer}>
-                <Text style={styles.schemeTitle}>{scheme.title}</Text>
-                <Text style={styles.schemeDescription}>
-                  {scheme.shortDescription}
-                </Text>
-              </View>
+        {schemes.schemes.map((scheme) => {
+          const translation = scheme.translations[language as Language] || scheme.translations.en;
+          
+          return (
+            <Pressable 
+              key={scheme.schemeId}
+              style={styles.schemeCard}
+              onPress={() => router.push(`/schemes/${scheme.schemeId}`)}
+            >
+              <View style={styles.cardContent}>
+                <View style={styles.titleContainer}>
+                  <Text style={styles.schemeTitle}>{translation.title}</Text>
+                  <Text style={styles.schemeDescription}>
+                    {translation.shortDescription}
+                  </Text>
+                </View>
 
-              <View style={styles.tagContainer}>
-                {scheme.targetGroup.map((tag, index) => (
-                  <View key={index} style={styles.tag}>
-                    <Text style={styles.tagText}>{tag}</Text>
-                  </View>
-                ))}
-              </View>
+                <View style={styles.tagContainer}>
+                  {scheme.targetGroup.map((tag, index) => (
+                    <View key={index} style={styles.tag}>
+                      <Text style={styles.tagText}>{tag}</Text>
+                    </View>
+                  ))}
+                </View>
 
-              <View style={styles.categoryContainer}>
-                {scheme.category.map((cat, index) => (
-                  <View key={index} style={styles.category}>
-                    <Ionicons 
-                      name={getCategoryIcon(cat)} 
-                      size={16} 
-                      color="#555cb3" 
-                    />
-                    <Text style={styles.categoryText}>{cat}</Text>
-                  </View>
-                ))}
+                <View style={styles.categoryContainer}>
+                  {scheme.category.map((cat, index) => (
+                    <View key={index} style={styles.category}>
+                      <Ionicons 
+                        name={getCategoryIcon(cat)} 
+                        size={16} 
+                        color="#555cb3" 
+                      />
+                      <Text style={styles.categoryText}>{cat}</Text>
+                    </View>
+                  ))}
+                </View>
               </View>
-            </View>
-          </Pressable>
-        ))}
+            </Pressable>
+          );
+        })}
       </View>
     </ScrollView>
   );

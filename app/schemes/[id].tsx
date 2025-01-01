@@ -2,9 +2,13 @@ import { View, Text, StyleSheet, ScrollView, Pressable, Linking } from 'react-na
 import { useLocalSearchParams, router } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import schemes from '../../assets/data/schemes.json';
+import { useSettings } from '../../context/settings';
+
+type Language = 'en' | 'hi' | 'ta';
 
 export default function SchemeDetailPage() {
   const { id } = useLocalSearchParams();
+  const { language } = useSettings();
   const scheme = schemes.schemes.find(s => s.schemeId === id);
 
   if (!scheme) {
@@ -14,6 +18,8 @@ export default function SchemeDetailPage() {
       </View>
     );
   }
+
+  const translation = scheme.translations[language as Language] || scheme.translations.en;
 
   return (
     <ScrollView style={styles.container}>
@@ -25,12 +31,12 @@ export default function SchemeDetailPage() {
       </Pressable>
 
       <View style={styles.content}>
-        <Text style={styles.title}>{scheme.title}</Text>
-        <Text style={styles.description}>{scheme.details.description}</Text>
+        <Text style={styles.title}>{translation.title}</Text>
+        <Text style={styles.description}>{translation.details.description}</Text>
 
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Benefits</Text>
-          {scheme.details.benefits.map((benefit, index) => (
+          {translation.details.benefits.map((benefit, index) => (
             <View key={index} style={styles.bulletPoint}>
               <Ionicons name="checkmark-circle" size={20} color="#4CAF50" />
               <Text style={styles.bulletText}>{benefit}</Text>
@@ -40,7 +46,7 @@ export default function SchemeDetailPage() {
 
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Eligibility</Text>
-          {scheme.details.eligibility.map((item, index) => (
+          {translation.details.eligibility.map((item, index) => (
             <View key={index} style={styles.bulletPoint}>
               <Ionicons name="person" size={20} color="#555cb3" />
               <Text style={styles.bulletText}>{item}</Text>
@@ -50,7 +56,7 @@ export default function SchemeDetailPage() {
 
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>How to Apply</Text>
-          {scheme.details.howToApply.map((step, index) => (
+          {translation.details.howToApply.map((step, index) => (
             <View key={index} style={styles.bulletPoint}>
               <Text style={styles.stepNumber}>{index + 1}</Text>
               <Text style={styles.bulletText}>{step}</Text>

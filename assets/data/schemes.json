@@ -1,148 +1,365 @@
 {
-  "schemes": [
-    {
-      "schemeId": "pmjdy-01",
-      "title": "Pradhan Mantri Jan Dhan Yojana (PMJDY)",
-      "shortDescription": "Zero balance bank account with additional benefits like insurance coverage.",
-      "details": {
-        "description": "PMJDY is a national mission for financial inclusion. You can open a basic savings bank account with zero balance. The account comes with a RuPay debit card and accident insurance cover.",
-        "benefits": [
-          "No minimum balance required",
-          "RuPay debit card with ₹2 lakh accident coverage",
-          "Life insurance cover of ₹30,000",
-          "Easy access to loans and other financial services",
-          "Mobile banking access"
+    "schemes": [
+      {
+        "schemeId": "pmjdy-01",
+        "translations": {
+          "en": {
+            "title": "Pradhan Mantri Jan Dhan Yojana (PMJDY)",
+            "shortDescription": "Zero balance bank account with additional benefits like insurance coverage.",
+            "details": {
+              "description": "PMJDY is a national mission for financial inclusion. You can open a basic savings bank account with zero balance. The account comes with a RuPay debit card and accident insurance cover.",
+              "benefits": [
+                "No minimum balance required",
+                "RuPay debit card with ₹2 lakh accident coverage",
+                "Life insurance cover of ₹30,000",
+                "Easy access to loans and other financial services",
+                "Mobile banking access"
+              ],
+              "eligibility": [
+                "Indian citizen",
+                "Valid ID proof (Aadhaar)",
+                "No other bank account"
+              ],
+              "howToApply": [
+                "Visit nearest bank branch",
+                "Carry Aadhaar card and a passport size photo",
+                "Fill the application form",
+                "Submit documents to bank official"
+              ]
+            }
+          },
+          "hi": {
+            "title": "प्रधानमंत्री जन धन योजना (पीएमजेडीवाई)",
+            "shortDescription": "बीमा कवरेज जैसे अतिरिक्त लाभों के साथ जीरो बैलेंस बैंक खाता।",
+            "details": {
+              "description": "पीएमजेडीवाई वित्तीय समावेशन के लिए एक राष्ट्रीय मिशन है। आप जीरो बैलेंस के साथ एक बेसिक सेविंग्स बैंक खाता खोल सकते हैं। खाते के साथ रुपे डेबिट कार्ड और दुर्घटना बीमा कवर मिलता है।",
+              "benefits": [
+                "न्यूनतम बैलेंस की आवश्यकता नहीं",
+                "₹2 लाख दुर्घटना कवरेज के साथ रुपे डेबिट कार्ड",
+                "₹30,000 का जीवन बीमा कवर",
+                "ऋण और अन्य वित्तीय सेवाओं तक आसान पहुंच",
+                "मोबाइल बैंकिंग की सुविधा"
+              ],
+              "eligibility": [
+                "भारतीय नागरिक",
+                "वैध पहचान प्रमाण (आधार)",
+                "कोई अन्य बैंक खाता नहीं"
+              ],
+              "howToApply": [
+                "निकटतम बैंक शाखा में जाएं",
+                "आधार कार्ड और पासपोर्ट साइज फोटो लेकर जाएं",
+                "आवेदन पत्र भरें",
+                "बैंक अधिकारी को दस्तावेज जमा करें"
+              ]
+            }
+          },
+          "ta": {
+            "title": "பிரதான் மந்திரி ஜன் தன் யோஜனா (பிஎம்ஜேடிஒய்)",
+            "shortDescription": "காப்பீட்டு பாதுகாப்பு போன்ற கூடுதல் பலன்களுடன் பூஜ்ய இருப்பு வங்கிக் கணக்கு.",
+            "details": {
+              "description": "பிஎம்ஜேடிஒய் நிதி உள்ளடக்கத்திற்கான ஒரு தேசிய திட்டம். நீங்கள் பூஜ்ய இருப்புடன் ஒரு அடிப்படை சேமிப்பு வங்கிக் கணக்கைத் திறக்கலாம். கணக்குடன் ரூபே டெபிட் கார்டு மற்றும் விபத்து காப்பீடு வழங்கப்படும்.",
+              "benefits": [
+                "குறைந்தபட்ச இருப்பு தேவையில்லை",
+                "₹2 லட்சம் விபத்து காப்பீட்டுடன் ரூபே டெபிட் கார்டு",
+                "₹30,000 ஆயுள் காப்பீடு",
+                "கடன்கள் மற்றும் பிற நிதி சேவைகளுக்கான எளிய அணுகல்",
+                "மொபைல் வங்கி சேவை"
+              ],
+              "eligibility": [
+                "இந்திய குடிமகன்",
+                "செல்லுபடியாகும் அடையாள சான்று (ஆதார்)",
+                "வேறு வங்கிக் கணக்கு இல்லை"
+              ],
+              "howToApply": [
+                "அருகிலுள்ள வங்கி கிளைக்குச் செல்லவும்",
+                "ஆதார் கார்டு மற்றும் பாஸ்போர்ட் அளவு புகைப்படத்தை கொண்டு செல்லவும்",
+                "விண்ணப்ப படிவத்தை பூர்த்தி செய்யவும்",
+                "வங்கி அதிகாரியிடம் ஆவணங்களை சமர்ப்பிக்கவும்"
+              ]
+            }
+          }
+        },
+        "category": ["banking", "insurance"],
+        "targetGroup": ["rural", "women", "low-income"],
+        "mediaUrls": [
+          "https://example.com/images/pmjdy.jpg",
+          "https://example.com/videos/pmjdy-guide.mp4"
         ],
-        "eligibility": [
-          "Indian citizen",
-          "Valid ID proof (Aadhaar)",
-          "No other bank account"
-        ],
-        "howToApply": [
-          "Visit nearest bank branch",
-          "Carry Aadhaar card and a passport size photo",
-          "Fill the application form",
-          "Submit documents to bank official"
-        ]
+        "links": {
+          "official": "https://pmjdy.gov.in",
+          "helpline": "1800-111-111"
+        }
       },
-      "category": ["banking", "insurance"],
-      "targetGroup": ["rural", "women", "low-income"],
-      "mediaUrls": [
-        "https://example.com/images/pmjdy.jpg",
-        "https://example.com/videos/pmjdy-guide.mp4"
-      ],
-      "links": {
-        "official": "https://pmjdy.gov.in",
-        "helpline": "1800-111-111"
-      }
-    },
-    {
-      "schemeId": "pmmy-02",
-      "title": "Pradhan Mantri MUDRA Yojana (PMMY)",
-      "shortDescription": "Small loans for business without collateral security.",
-      "details": {
-        "description": "MUDRA provides loans up to ₹10 lakh to small business owners. Perfect for starting or expanding small businesses like tailoring, beauty parlors, or small shops.",
-        "benefits": [
-          "No collateral required for loans up to ₹10 lakh",
-          "Three loan categories: Shishu (up to ₹50,000), Kishore (up to ₹5 lakh), and Tarun (up to ₹10 lakh)",
-          "Lower interest rates",
-          "Flexible repayment options"
+      {
+        "schemeId": "pmmy-02",
+        "translations": {
+            "en": {
+            "title": "Pradhan Mantri MUDRA Yojana (PMMY)",
+            "shortDescription": "Small loans for business without collateral security.",
+            "details": {
+                "description": "MUDRA provides loans up to ₹10 lakh to small business owners. Perfect for starting or expanding small businesses like tailoring, beauty parlors, or small shops.",
+                "benefits": [
+                "No collateral required for loans up to ₹10 lakh",
+                "Three loan categories: Shishu (up to ₹50,000), Kishore (up to ₹5 lakh), and Tarun (up to ₹10 lakh)",
+                "Lower interest rates",
+                "Flexible repayment options"
+                ],
+                "eligibility": [
+                "18-65 years of age",
+                "Small business owner or planning to start one",
+                "Valid business proposal"
+                ],
+                "howToApply": [
+                "Visit nearest bank or microfinance institution",
+                "Submit business proposal",
+                "Provide identity and address proof",
+                "Fill loan application form"
+                ]
+            }
+            },
+            "hi": {
+            "title": "प्रधानमंत्री मुद्रा योजना (पीएमएमवाई)",
+            "shortDescription": "बिना जमानत के व्यवसाय के लिए छोटे ऋण।",
+            "details": {
+                "description": "मुद्रा योजना छोटे व्यापार मालिकों को ₹10 लाख तक का ऋण प्रदान करती है। यह छोटे व्यवसाय जैसे सिलाई, ब्यूटी पार्लर, या छोटी दुकानों को शुरू करने या विस्तार करने के लिए उपयुक्त है।",
+                "benefits": [
+                "₹10 लाख तक के ऋण के लिए कोई जमानत नहीं",
+                "तीन ऋण श्रेणियाँ: शिशु (₹50,000 तक), किशोर (₹5 लाख तक), और तरुण (₹10 लाख तक)",
+                "निम्न ब्याज दर",
+                "लचीले पुनर्भुगतान विकल्प"
+                ],
+                "eligibility": [
+                "18-65 वर्ष की आयु",
+                "छोटे व्यवसाय के मालिक या व्यवसाय शुरू करने की योजना",
+                "वैध व्यवसाय प्रस्ताव"
+                ],
+                "howToApply": [
+                "निकटतम बैंक या माइक्रोफाइनेंस संस्थान जाएँ",
+                "व्यवसाय प्रस्ताव जमा करें",
+                "पहचान और पते का प्रमाण प्रस्तुत करें",
+                "ऋण आवेदन पत्र भरें"
+                ]
+            }
+            },
+            "ta": {
+            "title": "பிரதான் மந்திரி முத்ரா திட்டம் (பிஎம்மைஐ)",
+            "shortDescription": "கடைநிலை பாதுகாப்பின்றி சிறு தொழில்களுக்கு கடன்.",
+            "details": {
+                "description": "முத்ரா திட்டம் சிறு வணிக உரிமையாளர்களுக்கு ₹10 லட்சம் வரை கடன்களை வழங்குகிறது. தையல், அழகு நிலையங்கள் அல்லது சிறு கடைகள் போன்றவற்றைத் தொடங்க அல்லது விரிவுபடுத்த இது சிறந்தது.",
+                "benefits": [
+                "₹10 லட்சம் வரை உள்ள கடனுக்கு எந்தக் காப்பீடும் தேவையில்லை",
+                "மூன்று கடன் வகைகள்: சிசு (₹50,000 வரை), கிஷோர் (₹5 லட்சம் வரை), மற்றும் தருண் (₹10 லட்சம் வரை)",
+                "குறைந்த வட்டி விகிதங்கள்",
+                "நெகிழ்வான திருப்பிச் செலுத்தும் விருப்பங்கள்"
+                ],
+                "eligibility": [
+                "18-65 வயது",
+                "சிறு வணிக உரிமையாளர் அல்லது தொழில் தொடங்க திட்டமிடுபவர்",
+                "செல்லத்தக்க வணிகத் திட்டம்"
+                ],
+                "howToApply": [
+                "அருகிலுள்ள வங்கி அல்லது நுண்ணிணை நிறுவனம் செல்லவும்",
+                "வணிகத் திட்டத்தை சமர்ப்பிக்கவும்",
+                "அடையாளம் மற்றும் முகவரி சான்று வழங்கவும்",
+                "கடன் விண்ணப்பப் படிவத்தை நிரப்பவும்"
+                ]
+            }
+            }
+        },
+        "category": ["business", "loans"],
+        "targetGroup": ["women", "entrepreneurs", "self-employed"],
+        "mediaUrls": [
+            "https://example.com/images/mudra.jpg",
+            "https://example.com/videos/mudra-guide.mp4"
         ],
-        "eligibility": [
-          "18-65 years of age",
-          "Small business owner or planning to start one",
-          "Valid business proposal"
+        "links": {
+            "official": "https://www.mudra.org.in",
+            "helpline": "1800-180-1111"
+        }
+        },
+        {
+        "schemeId": "ujjwala-03",
+        "translations": {
+            "en": {
+            "title": "Pradhan Mantri Ujjwala Yojana",
+            "shortDescription": "Free LPG connection for women from BPL households.",
+            "details": {
+                "description": "Get a free LPG connection for your household. This scheme helps replace unhealthy cooking fuels like wood with clean LPG gas, improving health and saving time.",
+                "benefits": [
+                "Free LPG connection",
+                "First LPG cylinder free",
+                "EMI facility for stove and refills",
+                "Safety training provided",
+                "Improved health benefits"
+                ],
+                "eligibility": [
+                "Adult woman from BPL household",
+                "No existing LPG connection",
+                "Aadhaar card holder"
+                ],
+                "howToApply": [
+                "Visit nearest LPG distributor",
+                "Submit filled application form",
+                "Provide Aadhaar card and BPL certificate",
+                "Submit bank account details"
+                ]
+            }
+            },
+            "hi": {
+            "title": "प्रधानमंत्री उज्ज्वला योजना",
+            "shortDescription": "बीपीएल परिवारों की महिलाओं के लिए मुफ्त एलपीजी कनेक्शन।",
+            "details": {
+                "description": "अपने घर के लिए मुफ्त एलपीजी कनेक्शन प्राप्त करें। यह योजना लकड़ी जैसे अस्वास्थ्यकर खाना पकाने के ईंधन को स्वच्छ एलपीजी गैस से बदलने में मदद करती है, स्वास्थ्य में सुधार करती है और समय बचाती है।",
+                "benefits": [
+                "मुफ्त एलपीजी कनेक्शन",
+                "पहला एलपीजी सिलेंडर मुफ्त",
+                "चूल्हा और रिफिल के लिए ईएमआई सुविधा",
+                "सुरक्षा प्रशिक्षण प्रदान किया गया",
+                "स्वास्थ्य लाभों में सुधार"
+                ],
+                "eligibility": [
+                "बीपीएल परिवार की वयस्क महिला",
+                "कोई मौजूदा एलपीजी कनेक्शन नहीं",
+                "आधार कार्ड धारक"
+                ],
+                "howToApply": [
+                "निकटतम एलपीजी वितरक से संपर्क करें",
+                "भरा हुआ आवेदन पत्र जमा करें",
+                "आधार कार्ड और बीपीएल प्रमाण पत्र प्रदान करें",
+                "बैंक खाता विवरण जमा करें"
+                ]
+            }
+            },
+            "ta": {
+            "title": "பிரதான் மந்திரி உஜ்ஜ்வலா திட்டம்",
+            "shortDescription": "பிபிஎல் குடும்பங்களில் உள்ள பெண்களுக்கான இலவச எல்பிஜி இணைப்பு.",
+            "details": {
+                "description": "உங்கள் வீட்டிற்கு இலவச எல்பிஜி இணைப்பை பெறுங்கள். இந்தத் திட்டம் மரம் போன்ற ஆரோக்கியமற்ற சமையல் எரிபொருள்களை சுத்தமான எல்பிஜி வாயுவால் மாற்ற உதவுகிறது, ஆரோக்கியத்தை மேம்படுத்துகிறது மற்றும் நேரத்தைச் சேமிக்கிறது.",
+                "benefits": [
+                "இலவச எல்பிஜி இணைப்பு",
+                "முதல் எல்பிஜி சிலிண்டர் இலவசம்",
+                "அடுப்பிற்கும் மற்றும் நிரப்புதலுக்கும் ஈஎம்ஐ வசதி",
+                "பாதுகாப்பு பயிற்சி வழங்கப்பட்டது",
+                "ஆரோக்கிய நலன்கள் மேம்படுத்தப்பட்டன"
+                ],
+                "eligibility": [
+                "பிபிஎல் குடும்பத்தைச் சேர்ந்த பெண்கள்",
+                "யாருடையமும் எல்பிஜி இணைப்பு இல்லாது இருக்க வேண்டும்",
+                "ஆதார் கார்டு வைத்திருப்பவர்"
+                ],
+                "howToApply": [
+                "அருகிலுள்ள எல்பிஜி விநியோகஸ்தரை அணுகவும்",
+                "நிரப்பிய விண்ணப்பப் படிவத்தை சமர்ப்பிக்கவும்",
+                "ஆதார் கார்டும் பிபிஎல் சான்றிதழும் அளிக்கவும்",
+                "வங்கி கணக்கு விவரங்களை சமர்ப்பிக்கவும்"
+                ]
+            }
+            }
+        },
+        "category": ["household", "health"],
+        "targetGroup": ["rural", "women", "BPL"],
+        "mediaUrls": [
+            "https://example.com/images/ujjwala.jpg",
+            "https://example.com/videos/ujjwala-guide.mp4"
         ],
-        "howToApply": [
-          "Visit nearest bank or microfinance institution",
-          "Submit business proposal",
-          "Provide identity and address proof",
-          "Fill loan application form"
-        ]
-      },
-      "category": ["business", "loans"],
-      "targetGroup": ["women", "entrepreneurs", "self-employed"],
-      "mediaUrls": [
-        "https://example.com/images/mudra.jpg",
-        "https://example.com/videos/mudra-guide.mp4"
-      ],
-      "links": {
-        "official": "https://www.mudra.org.in",
-        "helpline": "1800-180-1111"
-      }
-    },
-    {
-      "schemeId": "ujjwala-03",
-      "title": "Pradhan Mantri Ujjwala Yojana",
-      "shortDescription": "Free LPG connection for women from BPL households.",
-      "details": {
-        "description": "Get a free LPG connection for your household. This scheme helps replace unhealthy cooking fuels like wood with clean LPG gas, improving health and saving time.",
-        "benefits": [
-          "Free LPG connection",
-          "First LPG cylinder free",
-          "EMI facility for stove and refills",
-          "Safety training provided",
-          "Improved health benefits"
-        ],
-        "eligibility": [
-          "Adult woman from BPL household",
-          "No existing LPG connection",
-          "Aadhaar card holder"
-        ],
-        "howToApply": [
-          "Visit nearest LPG distributor",
-          "Submit filled application form",
-          "Provide Aadhaar card and BPL certificate",
-          "Submit bank account details"
-        ]
-      },
-      "category": ["household", "health"],
-      "targetGroup": ["rural", "women", "BPL"],
-      "mediaUrls": [
-        "https://example.com/images/ujjwala.jpg",
-        "https://example.com/videos/ujjwala-guide.mp4"
-      ],
-      "links": {
-        "official": "https://pmuy.gov.in",
-        "helpline": "1800-266-6696"
-      }
-    },
-    {
-      "schemeId": "sukanya-04",
-      "title": "Sukanya Samriddhi Yojana",
-      "shortDescription": "Special savings scheme for girl child with high interest rates.",
-      "details": {
-        "description": "A government-backed savings scheme for girls under 10 years. Earn high interest rates and get tax benefits. Perfect for saving for your daughter's education or marriage.",
-        "benefits": [
-          "High interest rate (currently 8.0% p.a.)",
-          "Tax benefits under Section 80C",
-          "Minimum deposit ₹250 per year",
-          "Maximum deposit ₹1.5 lakh per year",
-          "Account matures after 21 years"
-        ],
-        "eligibility": [
-          "Girl child below 10 years",
-          "Indian resident",
-          "Only one account per girl child (maximum two accounts for family)"
-        ],
-        "howToApply": [
-          "Visit nearest post office or authorized bank",
-          "Fill account opening form",
-          "Submit girl's birth certificate",
-          "Provide parent's ID proof",
-          "Make initial deposit"
-        ]
-      },
-      "category": ["savings", "education"],
-      "targetGroup": ["girls", "parents"],
-      "mediaUrls": [
-        "https://example.com/images/sukanya.jpg",
-        "https://example.com/videos/sukanya-guide.mp4"
-      ],
-      "links": {
-        "official": "https://www.nsiindia.gov.in",
-        "helpline": "1800-180-1235"
-      }
-    }
-  ]
-} 
+        "links": {
+            "official": "https://pmuy.gov.in",
+            "helpline": "1800-266-6696"
+        }
+        },
+        {
+            "schemeId": "sukanya-04",
+            "translations": {
+              "en": {
+                "title": "Sukanya Samriddhi Yojana",
+                "shortDescription": "Special savings scheme for girl child with high interest rates.",
+                "details": {
+                  "description": "A government-backed savings scheme for girls under 10 years. Earn high interest rates and get tax benefits. Perfect for saving for your daughter's education or marriage.",
+                  "benefits": [
+                    "High interest rate (currently 8.0% p.a.)",
+                    "Tax benefits under Section 80C",
+                    "Minimum deposit ₹250 per year",
+                    "Maximum deposit ₹1.5 lakh per year",
+                    "Account matures after 21 years"
+                  ],
+                  "eligibility": [
+                    "Girl child below 10 years",
+                    "Indian resident",
+                    "Only one account per girl child (maximum two accounts for family)"
+                  ],
+                  "howToApply": [
+                    "Visit nearest post office or authorized bank",
+                    "Fill account opening form",
+                    "Submit girl's birth certificate",
+                    "Provide parent's ID proof",
+                    "Make initial deposit"
+                  ]
+                }
+              },
+              "hi": {
+                "title": "सुकन्या समृद्धि योजना",
+                "shortDescription": "उच्च ब्याज दरों के साथ बालिका के लिए विशेष बचत योजना।",
+                "details": {
+                  "description": "10 वर्ष से कम उम्र की बालिकाओं के लिए सरकार समर्थित बचत योजना। उच्च ब्याज दर कमाएं और कर लाभ प्राप्त करें। यह आपकी बेटी की शिक्षा या विवाह के लिए बचत करने के लिए उपयुक्त है।",
+                  "benefits": [
+                    "उच्च ब्याज दर (वर्तमान में 8.0% वार्षिक)",
+                    "धारा 80सी के तहत कर लाभ",
+                    "न्यूनतम जमा ₹250 प्रति वर्ष",
+                    "अधिकतम जमा ₹1.5 लाख प्रति वर्ष",
+                    "खाता 21 वर्षों के बाद परिपक्व होता है"
+                  ],
+                  "eligibility": [
+                    "10 वर्ष से कम उम्र की बालिका",
+                    "भारतीय निवासी",
+                    "प्रति बालिका केवल एक खाता (परिवार के लिए अधिकतम दो खाते)"
+                  ],
+                  "howToApply": [
+                    "निकटतम डाकघर या अधिकृत बैंक जाएं",
+                    "खाता खोलने का फॉर्म भरें",
+                    "बालिका का जन्म प्रमाण पत्र जमा करें",
+                    "माता-पिता का पहचान प्रमाण प्रदान करें",
+                    "प्रारंभिक जमा करें"
+                  ]
+                }
+              },
+              "ta": {
+                "title": "சுகன்யா சம்ருத்தி திட்டம்",
+                "shortDescription": "அதிக வட்டி விகிதத்துடன் சிறுமிகளுக்கான சிறப்பு சேமிப்பு திட்டம்.",
+                "details": {
+                  "description": "10 வயதுக்குக் கீழேயுள்ள சிறுமிகளுக்கான அரசால் ஆதரிக்கப்படும் சேமிப்பு திட்டம். அதிக வட்டி விகிதத்தைப் பெறுங்கள் மற்றும் வரி நன்மைகளைப் பெறுங்கள். உங்கள் மகளின் கல்வி அல்லது திருமணத்திற்கு சேமிக்க இது சிறந்தது.",
+                  "benefits": [
+                    "அதிக வட்டி விகிதம் (தற்போது ஆண்டு 8.0%)",
+                    "பிரிவு 80Cன் கீழ் வரி நன்மைகள்",
+                    "குறைந்தபட்ச டெபாசிட் ₹250 प्रति வருடம்",
+                    "அதிகபட்ச டெபாசிட் ₹1.5 லட்சம் प्रति வருடம்",
+                    "கணக்கு 21 ஆண்டுகள் கழித்து முடிவடைகிறது"
+                  ],
+                  "eligibility": [
+                    "10 வயதுக்குக் கீழே உள்ள சிறுமி",
+                    "இந்திய குடிமகன்",
+                    "ஒரு சிறுமிக்கு ஒரு கணக்கு மட்டுமே (குடும்பத்திற்கான அதிகபட்சம் இரண்டு கணக்குகள்)"
+                  ],
+                  "howToApply": [
+                    "அருகிலுள்ள அஞ்சல் நிலையம் அல்லது அங்கீகரிக்கப்பட்ட வங்கிக்கு செல்லவும்",
+                    "கணக்கைத் திறப்பதற்கான படிவத்தை பூர்த்தி செய்யவும்",
+                    "சிறுமியின் பிறப்பு சான்றிதழைச் சமர்ப்பிக்கவும்",
+                    "பெற்றோரின் அடையாளச் சான்றிதழை வழங்கவும்",
+                    "ஆரம்ப வைப்புதலைச் செய்யவும்"
+                  ]
+                }
+              }
+            },
+            "category": ["savings", "education"],
+            "targetGroup": ["girls", "parents"],
+            "mediaUrls": [
+              "https://example.com/images/sukanya.jpg",
+              "https://example.com/videos/sukanya-guide.mp4"
+            ],
+            "links": {
+              "official": "https://www.nsiindia.gov.in",
+              "helpline": "1800-180-1235"
+            }
+        }
+    ]
+}
+  

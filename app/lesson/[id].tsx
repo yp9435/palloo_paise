@@ -1,12 +1,67 @@
-import { View, Text, StyleSheet, ScrollView, Pressable } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, Pressable, Platform } from 'react-native';
 import { Image } from 'expo-image';
 import { useLocalSearchParams, router } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import lessons from '../../assets/data/lessons.json';
+import { useSettings } from '../../context/settings';
+import * as Speech from 'expo-speech';
+import { useEffect, useState } from 'react';
+
+type Language = 'en' | 'hi' | 'ta';
 
 export default function LessonPage() {
   const { id } = useLocalSearchParams();
+  const { language } = useSettings();
   const lesson = lessons.lessons.find(l => l.contentId === id);
+  const [isSpeaking, setIsSpeaking] = useState(false);
+
+  // Stop speech when component unmounts
+  useEffect(() => {
+    return () => {
+      Speech.stop();
+    };
+  }, []);
+
+  const getLanguageCode = (lang: Language) => {
+    switch (lang) {
+      case 'hi':
+        return 'hi-IN';
+      case 'ta':
+        // Tamil has different codes for iOS and Android
+        return Platform.OS === 'ios' ? 'ta-IN' : 'tam'; // 'tam' for Android, 'ta-IN' for iOS
+      default:
+        return 'en-US';
+    }
+  };
+
+  const handleSpeech = async () => {
+    if (isSpeaking) {
+      await Speech.stop();
+      setIsSpeaking(false);
+      return;
+    }
+
+    const translation = lesson?.translations[language as Language] || lesson?.translations.en;
+    if (!translation) return;
+
+    setIsSpeaking(true);
+
+    try {
+      await Speech.speak(translation.text, {
+        language: getLanguageCode(language as Language),
+        rate: 0.9,
+        pitch: 1,
+        onDone: () => setIsSpeaking(false),
+        onError: (error) => {
+          console.error('Speech error:', error);
+          setIsSpeaking(false);
+        },
+      });
+    } catch (error) {
+      console.error('Speech error:', error);
+      setIsSpeaking(false);
+    }
+  };
 
   if (!lesson) {
     return (
@@ -15,6 +70,8 @@ export default function LessonPage() {
       </View>
     );
   }
+
+  const translation = lesson.translations[language as Language] || lesson.translations.en;
 
   return (
     <ScrollView style={styles.container}>
@@ -32,7 +89,7 @@ export default function LessonPage() {
       />
 
       <View style={styles.content}>
-        <Text style={styles.title}>{lesson.translations.en.title}</Text>
+        <Text style={styles.title}>{translation.title}</Text>
         
         <View style={styles.metaInfo}>
           <View style={styles.difficultyBadge}>
@@ -48,13 +105,19 @@ export default function LessonPage() {
         </View>
 
         <Text style={styles.lessonText}>
-          {lesson.translations.en.text}
+          {translation.text}
         </Text>
 
-        {/* Audio Player Component - You'll need to implement this */}
-        <Pressable style={styles.audioPlayer}>
-          <Ionicons name="play-circle" size={32} color="#555cb3" />
-          <Text style={styles.audioText}>Listen to Lesson</Text>
+        {/* Updated Audio Player Component */}
+        <Pressable style={styles.audioPlayer} onPress={handleSpeech}>
+          <Ionicons 
+            name={isSpeaking ? "pause-circle" : "play-circle"} 
+            size={32} 
+            color="#555cb3" 
+          />
+          <Text style={styles.audioText}>
+            {isSpeaking ? "Stop Reading" : "Listen to Lesson"}
+          </Text>
         </Pressable>
 
         {lesson.mediaUrls.length > 1 && (
@@ -152,11 +215,17 @@ const styles = StyleSheet.create({
     padding: 15,
     borderRadius: 12,
     marginBottom: 20,
+    elevation: 2,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.2,
+    shadowRadius: 2,
   },
   audioText: {
     marginLeft: 10,
     fontSize: 16,
     color: '#555cb3',
+    fontWeight: '500',
   },
   additionalMedia: {
     marginTop: 20,

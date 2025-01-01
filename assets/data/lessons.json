@@ -1,106 +1,140 @@
 {
-  "lessons": [
-    {
-      "contentId": "intro-01",
-      "type": "lesson",
-      "translations": {
-        "en": {
-          "title": "What is Money?",
-          "text": "Money is a tool we use to buy things and save for our future. Think of it like seeds - if you plant them wisely, they grow into trees that give fruit. Similarly, when you handle money wisely, it can grow and help secure your future. Today, money comes in different forms: cash, bank accounts, and even digital payments through mobile phones.",
-          "audio": "/audio/en/what-is-money.mp3"
-        }
+    "lessons": [
+      {
+        "contentId": "intro-01",
+        "type": "lesson",
+        "translations": {
+          "en": {
+            "title": "What is Money?",
+            "text": "Money is a tool we use to buy things and save for our future. Think of it like seeds - if you plant them wisely, they grow into trees that give fruit. Similarly, when you handle money wisely, it can grow and help secure your future. Today, money comes in different forms: cash, bank accounts, and even digital payments through mobile phones.",
+            "audio": "/audio/en/what-is-money.mp3"
+          },
+          "hi": {
+            "title": "पैसा क्या है?",
+            "text": "पैसा एक उपकरण है जिसका उपयोग हम चीजें खरीदने और अपने भविष्य के लिए बचाने के लिए करते हैं। इसे बीजों की तरह सोचें - यदि आप उन्हें समझदारी से बोते हैं, तो वे फल देने वाले पेड़ बन जाते हैं। इसी तरह, जब आप पैसे को समझदारी से संभालते हैं, तो यह बढ़ सकता है और आपके भविष्य को सुरक्षित करने में मदद कर सकता है। आज, पैसा विभिन्न रूपों में आता है: नकद, बैंक खाते, और यहां तक कि मोबाइल फोन के माध्यम से डिजिटल भुगतान।",
+            "audio": "/audio/hi/what-is-money.mp3"
+          },
+          "ta": {
+            "title": "பணம் என்றால் என்ன?",
+            "text": "பணம் என்பது நம்மால் பொருட்களை வாங்கவும் நமது எதிர்காலத்திற்காக சேமிக்கவும் பயன்படுத்தப்படும் ஒரு கருவி. இதை விதைகள் போல நினைக்கவும் - நீங்கள் அதை அறிவுடன் விதைத்தால், அது பழங்கள் தரும் மரங்களாக மாறும். அதைப் போலவே, நீங்கள் பணத்தை அறிவுடன் நடத்தினால், அது வளர்ந்து உங்கள் எதிர்காலத்தை பாதுகாப்பதற்கு உதவும். இன்று, பணம் வெவ்வேறு வடிவங்களில் உள்ளது: ரொக்கம், வங்கி கணக்குகள், மற்றும் செல்பேசிகள் மூலம் டிஜிட்டல் பணப்பரிவர்த்தனைகள்.",
+            "audio": "/audio/ta/what-is-money.mp3"
+          }
+        },
+        "difficulty": 1,
+        "tags": ["basics", "introduction", "fundamentals"],
+        "mediaUrls": [
+          "https://images.unsplash.com/photo-1633158829585-23ba8f7c8caf",
+          "https://example.com/videos/money-intro.mp4"
+        ]
       },
-      "difficulty": 1,
-      "tags": ["basics", "introduction", "fundamentals"],
-      "mediaUrls": [
-        "https://images.unsplash.com/photo-1633158829585-23ba8f7c8caf",
-        "https://example.com/videos/money-intro.mp4"
-      ]
-    },
-    {
-      "contentId": "savings-01",
-      "type": "lesson",
-      "translations": {
-        "en": {
-          "title": "Smart Saving Habits",
-          "text": "Saving money is like collecting water drops in a pot - every small amount matters! Start by saving just ₹10 each day. After one month, you'll have ₹300! Here are three simple rules: 1) Save before you spend 2) Keep saved money separate from spending money 3) Write down your savings goal where you can see it daily. Remember: small, regular savings are better than irregular large amounts.",
-          "audio": "/audio/en/saving-habits.mp3"
-        }
+      {
+        "contentId": "savings-01",
+        "type": "lesson",
+        "translations": {
+          "en": {
+            "title": "Smart Saving Habits",
+            "text": "Saving money is like collecting water drops in a pot - every small amount matters! Start by saving just ₹10 each day. After one month, you'll have ₹300! Here are three simple rules: 1) Save before you spend 2) Keep saved money separate from spending money 3) Write down your savings goal where you can see it daily. Remember: small, regular savings are better than irregular large amounts.",
+            "audio": "/audio/en/saving-habits.mp3"
+          },
+          "hi": {
+            "title": "स्मार्ट बचत की आदतें",
+            "text": "पैसे बचाना पानी की बूंदों को घड़े में इकट्ठा करने जैसा है - हर छोटी राशि महत्वपूर्ण होती है! केवल ₹10 प्रतिदिन बचाना शुरू करें। एक महीने बाद आपके पास ₹300 होंगे! यहां तीन सरल नियम हैं: 1) खर्च करने से पहले बचत करें 2) बचाए गए पैसे को खर्च करने वाले पैसे से अलग रखें 3) अपनी बचत का लक्ष्य ऐसी जगह लिखें जहां आप इसे रोज़ देख सकें। याद रखें: छोटी, नियमित बचत अनियमित बड़ी राशि से बेहतर होती है।",
+            "audio": "/audio/hi/saving-habits.mp3"
+          },
+          "ta": {
+            "title": "சாதுவான சேமிப்பு பழக்கங்கள்",
+            "text": "பணம் சேமிப்பது ஒரு பானையில் துளிகளை சேகரிப்பதைப் போன்றது - ஒவ்வொரு சிறிய தொகையும் முக்கியம்! நாளுக்கு ₹10 சேமிக்க தொடங்குங்கள். ஒரு மாதத்திற்குப் பிறகு, உங்கள் பையில் ₹300 இருக்கும்! இங்கே மூன்று எளிய விதிகள் உள்ளன: 1) செலவழிப்பதற்கு முன் சேமிக்கவும் 2) சேமித்த பணத்தை செலவழிக்கும் பணத்திலிருந்து தனியாக வைத்திருக்கவும் 3) உங்கள் சேமிப்பு இலக்கை தினமும் பார்க்கக்கூடிய இடத்தில் எழுதவும். நினைவில் கொள்ளவும்: சிறிய, முறையான சேமிப்பு முற்றிலும் பெரிய தொகையை விட நல்லது.",
+            "audio": "/audio/ta/saving-habits.mp3"
+          }
+        },
+        "difficulty": 1,
+        "tags": ["savings", "habits", "practical tips"],
+        "mediaUrls": [
+          "https://images.unsplash.com/photo-1579621970795-87facc2f976d",
+          "https://example.com/images/savings-tracker.jpg"
+        ]
       },
-      "difficulty": 1,
-      "tags": ["savings", "habits", "practical tips"],
-      "mediaUrls": [
-        "https://images.unsplash.com/photo-1579621970795-87facc2f976d",
-        "https://example.com/images/savings-tracker.jpg"
-      ]
-    },
-    {
-      "contentId": "banking-01",
-      "type": "lesson",
-      "translations": {
-        "en": {
-          "title": "Your First Bank Account",
-          "text": "A bank account is like a safe home for your money. To open one, you'll need: 1) An ID proof (Aadhaar card) 2) Address proof 3) A small amount of money to deposit. Many banks offer zero-balance accounts for women. Banking gives you: ATM card access, secure savings, and the ability to receive government benefits directly. Visit your nearest bank with a trusted family member to learn more.",
-          "audio": "/audio/en/first-account.mp3"
-        }
+      {
+        "contentId": "security-01",
+        "type": "lesson",
+        "translations": {
+          "en": {
+            "title": "Keeping Your Money Safe",
+            "text": "Protect your money like you protect your home! Important safety rules: 1) Never share your PIN or passwords 2) Don't keep all your money in one place 3) Be careful of strangers offering quick money schemes 4) Keep your ATM card safe 5) Check your account regularly. If something seems wrong, talk to your bank immediately. Remember: legitimate banks never ask for your PIN over phone or messages.",
+            "audio": "/audio/en/money-safety.mp3"
+          },
+          "hi": {
+            "title": "अपने पैसे को सुरक्षित रखें",
+            "text": "अपने पैसे की सुरक्षा ऐसे करें जैसे आप अपने घर की करते हैं! महत्वपूर्ण सुरक्षा नियम: 1) अपना पिन या पासवर्ड कभी साझा न करें 2) अपना सारा पैसा एक ही जगह न रखें 3) जल्दी पैसे देने की योजना बताने वाले अजनबियों से सावधान रहें 4) अपना एटीएम कार्ड सुरक्षित रखें 5) अपने खाते की नियमित जांच करें। यदि कुछ गलत लगे, तो तुरंत अपने बैंक से संपर्क करें। याद रखें: वैध बैंक कभी भी फोन या संदेशों में आपका पिन नहीं पूछते।",
+            "audio": "/audio/hi/money-safety.mp3"
+          },
+          "ta": {
+            "title": "உங்கள் பணத்தை பாதுகாக்கவும்",
+            "text": "உங்கள் வீட்டை நீங்கள் எப்படி பாதுகாப்பதோ அதேபோல் உங்கள் பணத்தையும் பாதுகாக்கவும்! முக்கிய பாதுகாப்பு விதிகள்: 1) உங்கள் பின் அல்லது கடவுச்சொல்லை ஒருவரிடமும் பகிர வேண்டாம் 2) உங்கள் பணம் அனைத்தையும் ஒரே இடத்தில் வைத்திருக்க வேண்டாம் 3) எளிதில் பணம் கொடுக்கும் திட்டங்களைச் சொல்லும்陌 strangers நபர்களைப் பார்த்து கவனமாக இருங்கள் 4) உங்கள் ஏடிஎம் கார்டை பாதுகாப்பாக வைத்திருங்கள் 5) உங்கள் கணக்கை வழக்கமாக சரிபார்க்கவும். ஏதாவது தவறு என்று தெரிந்தால் உடனடியாக உங்கள் வங்கியுடன் தொடர்பு கொள்ளவும். நினைவில் கொள்ளவும்: உண்மையான வங்கிகள் உங்கள் பினைக் கோர மாட்டார்கள்.",
+            "audio": "/audio/ta/money-safety.mp3"
+          }
+        },
+        "difficulty": 2,
+        "tags": ["security", "protection", "awareness"],
+        "mediaUrls": [
+          "https://images.unsplash.com/photo-1563013544-824ae1b704d3",
+          "https://example.com/images/security-tips.jpg"
+        ]
       },
-      "difficulty": 2,
-      "tags": ["banking", "accounts", "documentation"],
-      "mediaUrls": [
-        "https://images.unsplash.com/photo-1601597111158-2fceff292cdc",
-        "https://example.com/videos/account-opening.mp4"
-      ]
-    },
-    {
-      "contentId": "security-01",
-      "type": "lesson",
-      "translations": {
-        "en": {
-          "title": "Keeping Your Money Safe",
-          "text": "Protect your money like you protect your home! Important safety rules: 1) Never share your PIN or passwords 2) Don't keep all your money in one place 3) Be careful of strangers offering quick money schemes 4) Keep your ATM card safe 5) Check your account regularly. If something seems wrong, talk to your bank immediately. Remember: legitimate banks never ask for your PIN over phone or messages.",
-          "audio": "/audio/en/money-safety.mp3"
-        }
+      {
+        "contentId": "budgeting-01",
+        "type": "lesson",
+        "translations": {
+          "en": {
+            "title": "Simple Budgeting",
+            "text": "A budget is your money plan. Think of it like planning meals for the week. First, write down all money you receive (income). Then, list essential expenses like food and rent. The 50-30-20 rule can help: Use 50% for needs, 30% for wants, and save 20%. Keep track of spending in a notebook or your phone. Small expenses like tea and snacks add up - track everything!",
+            "audio": "/audio/en/basic-budgeting.mp3"
+          },
+          "hi": {
+            "title": "सरल बजट बनाना",
+            "text": "एक बजट आपकी पैसे की योजना है। इसे सप्ताह के भोजन की योजना बनाने जैसा समझें। पहले, अपनी प्राप्त सभी राशि (आय) लिखें। फिर, अनिवार्य खर्च जैसे भोजन और किराया लिखें। 50-30-20 नियम मदद कर सकता है: 50% जरूरतों के लिए, 30% इच्छाओं के लिए और 20% बचत के लिए रखें। एक नोटबुक या अपने फोन में खर्च का हिसाब रखें। छोटी-छोटी खर्च जैसे चाय और नाश्ता भी जोड़ते हैं - सब कुछ ट्रैक करें!",
+            "audio": "/audio/hi/basic-budgeting.mp3"
+          },
+          "ta": {
+            "title": "சாதாரண செலவுத்திட்டம்",
+            "text": "செலவுத்திட்டம் உங்கள் பணத்திற்கான திட்டம் ஆகும். அதை ஒரு வாரத்திற்கான உணவு திட்டங்களை திட்டமிடுவது போலக் கற்பனை செய்யவும். முதலில், நீங்கள் பெறும் அனைத்து பணத்தையும் (வருமானம்) எழுதுங்கள். அதன் பிறகு, உணவு மற்றும் வாடகை போன்ற அடிப்படை செலவுகளை பட்டியலிடவும். 50-30-20 விதி உதவக்கூடும்: தேவைகளுக்கு 50%, விருப்பங்களுக்காக 30%, மற்றும் சேமிப்புக்கு 20% பயன்படுத்தவும். ஒரு நோட்டுப்புத்தகம் அல்லது உங்கள் தொலைபேசி மூலம் செலவுகளை கண்காணிக்கவும். தேநீர் மற்றும் சிற்றுண்டி போன்ற சிறிய செலவுகள் கூட சேர்கின்றன - அனைத்தையும் கண்காணிக்கவும்!",
+            "audio": "/audio/ta/basic-budgeting.mp3"
+          }
+        },
+        "difficulty": 2,
+        "tags": ["budgeting", "planning", "money management"],
+        "mediaUrls": [
+          "https://images.unsplash.com/photo-1554224155-6726b3ff858f",
+          "https://example.com/images/budget-template.jpg"
+        ]
       },
-      "difficulty": 2,
-      "tags": ["security", "protection", "awareness"],
-      "mediaUrls": [
-        "https://images.unsplash.com/photo-1563013544-824ae1b704d3",
-        "https://example.com/images/security-tips.jpg"
-      ]
-    },
-    {
-      "contentId": "budgeting-01",
-      "type": "lesson",
-      "translations": {
-        "en": {
-          "title": "Simple Budgeting",
-          "text": "A budget is your money plan. Think of it like planning meals for the week. First, write down all money you receive (income). Then, list essential expenses like food and rent. The 50-30-20 rule can help: Use 50% for needs, 30% for wants, and save 20%. Keep track of spending in a notebook or your phone. Small expenses like tea and snacks add up - track everything!",
-          "audio": "/audio/en/basic-budgeting.mp3"
-        }
-      },
-      "difficulty": 2,
-      "tags": ["budgeting", "planning", "money management"],
-      "mediaUrls": [
-        "https://images.unsplash.com/photo-1554224155-6726b3ff858f",
-        "https://example.com/images/budget-template.jpg"
-      ]
-    },
-    {
-      "contentId": "emergency-01",
-      "type": "lesson",
-      "translations": {
-        "en": {
-          "title": "Building an Emergency Fund",
-          "text": "An emergency fund is your financial safety net. Start small: save one day's income each month. Aim to eventually save enough for 3 months of expenses. Keep this money separate from regular savings. Use it only for real emergencies like medical needs or urgent repairs. Having an emergency fund gives you peace of mind and prevents taking expensive loans in crisis times.",
-          "audio": "/audio/en/emergency-fund.mp3"
-        }
-      },
-      "difficulty": 3,
-      "tags": ["emergency", "planning", "financial security"],
-      "mediaUrls": [
-        "https://images.unsplash.com/photo-1518183214770-9cffbec72538",
-        "https://example.com/videos/emergency-planning.mp4"
-      ]
-    }
-  ]
-} 
+      {
+        "contentId": "emergency-01",
+        "type": "lesson",
+        "translations": {
+          "en": {
+            "title": "Building an Emergency Fund",
+            "text": "An emergency fund is your financial safety net. Start small: save one day's income each month. Aim to eventually save enough for 3 months of expenses. Keep this money separate from regular savings. Use it only for real emergencies like medical needs or urgent repairs. Having an emergency fund gives you peace of mind and prevents taking expensive loans in crisis times.",
+            "audio": "/audio/en/emergency-fund.mp3"
+          },
+          "hi": {
+            "title": "आपातकालीन फंड बनाना",
+            "text": "एक आपातकालीन फंड आपका वित्तीय सुरक्षा जाल है। छोटा शुरू करें: हर महीने एक दिन की आय बचाएं। उद्देश्य यह है कि अंततः 3 महीने के खर्चे के लिए पर्याप्त बचत हो। इस पैसे को सामान्य बचत से अलग रखें। इसका उपयोग केवल वास्तविक आपात स्थितियों के लिए करें, जैसे चिकित्सा आवश्यकताएँ या तत्काल मरम्मत। आपातकालीन फंड होने से आपको मानसिक शांति मिलती है और संकट के समय महंगे ऋण लेने से बचाव होता है।",
+            "audio": "/audio/hi/emergency-fund.mp3"
+          },
+          "ta": {
+            "title": "அவசர நிதி உருவாக்குவது",
+            "text": "அவசர நிதி என்பது உங்கள் நிதி பாதுகாப்பு வலையெட்டு ஆகும். சிறிது தொடங்குங்கள்: ஒவ்வொரு மாதமும் ஒரே நாளின் வருமானத்தை சேமிக்கவும். முக்காலிக செலவுகளுக்காக முடிவில் 3 மாதங்கள் போதுமான அளவு சேமிக்கவும். இந்த பணத்தை வழக்கமான சேமிப்புகளிலிருந்து வேறாக வைக்கவும். உண்மையான அவசர தேவை நிலைகள், மருத்துவ தேவைகள் அல்லது அவசர பராமரிப்புகளுக்காக மட்டும் அதை பயன்படுத்தவும். அவசர நிதி இருப்பது உங்களுக்கு மன அமைதி வழங்கும் மற்றும் இவ்வாறு நேர்ந்த போது விலையுயர்ந்த கடன்கள் எடுக்கும் போதுமான எண்ணங்களை தவிர்க்க உதவும்.",
+            "audio": "/audio/ta/emergency-fund.mp3"
+          }
+        },
+        "difficulty": 3,
+        "tags": ["emergency", "planning", "financial security"],
+        "mediaUrls": [
+          "https://images.unsplash.com/photo-1518183214770-9cffbec72538",
+          "https://example.com/videos/emergency-planning.mp4"
+        ]
+      }
+    ]
+  }
+  

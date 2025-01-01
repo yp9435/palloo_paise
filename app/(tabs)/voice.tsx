@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { StyleSheet, View, Text, Pressable, ActivityIndicator } from 'react-native';
+import { StyleSheet, View, Text, Pressable, ActivityIndicator, Vibration } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import * as Speech from 'expo-speech';
 import Voice, { SpeechResultsEvent } from '@react-native-voice/voice';
@@ -9,35 +9,59 @@ export default function VoiceNavigation() {
   const [isListening, setIsListening] = useState(false);
   const [spokenText, setSpokenText] = useState('');
   const [feedback, setFeedback] = useState('Press and hold to speak');
+  const [isProcessing, setIsProcessing] = useState(false);
 
-  // Initialize voice recognition
   useEffect(() => {
     const setupVoice = async () => {
-      // Event handlers for voice recognition
-      Voice.onSpeechStart = () => setIsListening(true);
-      Voice.onSpeechEnd = () => setIsListening(false);
-      Voice.onSpeechResults = (e: SpeechResultsEvent) => {
-        if (e.value) {
-          setSpokenText(e.value[0]);
-          handleVoiceCommand(e.value[0]);
-        }
-      };
+      try {
+        await Voice.isAvailable();
+        
+        Voice.onSpeechStart = () => {
+          setIsListening(true);
+          Vibration.vibrate(50); // Short vibration feedback
+        };
+        
+        Voice.onSpeechEnd = () => {
+          setIsListening(false);
+          setIsProcessing(true);
+          Vibration.vibrate(50);
+        };
+        
+        Voice.onSpeechResults = (e: SpeechResultsEvent) => {
+          if (e.value) {
+            setSpokenText(e.value[0]);
+            handleVoiceCommand(e.value[0]);
+          }
+          setIsProcessing(false);
+        };
+
+        Voice.onSpeechError = (e) => {
+          console.error('Speech recognition error:', e);
+          setIsListening(false);
+          setIsProcessing(false);
+          setFeedback('Error recognizing speech. Please try again.');
+          Vibration.vibrate([100, 200, 100]); // Error vibration pattern
+        };
+      } catch (e) {
+        console.error('Failed to initialize voice recognition:', e);
+      }
     };
 
     setupVoice();
     return () => {
-      // Cleanup
       Voice.destroy().then(Voice.removeAllListeners);
     };
   }, []);
 
   const startListening = async () => {
     try {
+      setSpokenText('');
       await Voice.start('en-US');
       setFeedback('Listening...');
     } catch (e) {
-      console.error(e);
+      console.error('Error starting voice recognition:', e);
       setFeedback('Error starting voice recognition');
+      Vibration.vibrate([100, 200, 100]);
     }
   };
 
@@ -46,43 +70,56 @@ export default function VoiceNavigation() {
       await Voice.stop();
       setFeedback('Processing...');
     } catch (e) {
-      console.error(e);
+      console.error('Error stopping voice recognition:', e);
     }
   };
 
   const handleVoiceCommand = (command: string) => {
-    const lowerCommand = command.toLowerCase();
+    const lowerCommand = command.toLowerCase().trim();
     
-    // Define navigation commands and their corresponding actions
+    // Enhanced navigation commands with more variations
     const navigationCommands = {
-      'go to home': () => router.push('/'),
-      'go home': () => router.push('/'),
-      'open home': () => router.push('/'),
-      'go to budget': () => router.push('/budget'),
-      'open budget': () => router.push('/budget'),
-      'show budget': () => router.push('/budget'),
-      'go to settings': () => router.push('/settings'),
-      'open settings': () => router.push('/settings'),
-      'show settings': () => router.push('/settings'),
-      'go to learn': () => router.push('/learn'),
-      'open learn': () => router.push('/learn'),
-      'show learn': () => router.push('/learn'),
+      'home': [
+        'go to home', 'go home', 'open home', 'take me home',
+        'navigate to home', 'show home', 'home page'
+      ],
+      'budget': [
+        'go to budget', 'open budget', 'show budget',
+        'navigate to budget', 'budget page', 'check budget'
+      ],
+      'settings': [
+        'go to settings', 'open settings', 'show settings',
+        'navigate to settings', 'settings page', 'preferences'
+      ],
+      'learn': [
+        'go to learn', 'open learn', 'show learn',
+        'navigate to learn', 'learning page', 'lessons'
+      ],
+      'schemes': [
+        'go to schemes', 'open schemes', 'show schemes',
+        'government schemes', 'check schemes', 'available schemes'
+      ]
     };
 
-    // Check if the command matches any of our navigation commands
-    for (const [key, action] of Object.entries(navigationCommands)) {
-      if (lowerCommand.includes(key)) {
-        action();
-        setFeedback(`Navigating to ${key.replace('go to ', '')}`);
-        // Provide voice feedback
-        Speech.speak(`Navigating to ${key.replace('go to ', '')}`);
+    // Find matching command
+    for (const [route, commands] of Object.entries(navigationCommands)) {
+      if (commands.some(cmd => lowerCommand.includes(cmd))) {
+        // Provide haptic feedback
+        Vibration.vibrate(100);
+        
+        // Navigate and provide feedback
+        router.push(`/${route === 'home' ? '' : route}`);
+        const destination = route.charAt(0).toUpperCase() + route.slice(1);
+        setFeedback(`Navigating to ${destination}`);
+        Speech.speak(`Navigating to ${destination}`);
         return;
       }
     }
 
-    // If no matching command is found
+    // No matching command found
     setFeedback("Command not recognized. Please try again.");
     Speech.speak("I didn't understand that command. Please try again.");
+    Vibration.vibrate([50, 100, 50]);
   };
 
   return (
@@ -92,17 +129,28 @@ export default function VoiceNavigation() {
         {spokenText ? (
           <Text style={styles.spokenText}>"{spokenText}"</Text>
         ) : null}
+        {isProcessing && (
+          <ActivityIndicator style={styles.processingIndicator} color="#555cb3" />
+        )}
       </View>
 
       <Pressable
-        style={[styles.micButton, isListening && styles.micButtonActive]}
+        style={[
+          styles.micButton,
+          isListening && styles.micButtonActive,
+          isProcessing && styles.micButtonProcessing
+        ]}
         onPressIn={startListening}
         onPressOut={stopListening}
       >
         {isListening ? (
           <ActivityIndicator size="large" color="#fff" />
         ) : (
-          <Ionicons name="mic" size={32} color="#fff" />
+          <Ionicons 
+            name={isProcessing ? "hourglass" : "mic"} 
+            size={32} 
+            color="#fff" 
+          />
         )}
       </Pressable>
 
@@ -113,6 +161,7 @@ export default function VoiceNavigation() {
         <Text style={styles.commandExample}>"Open Budget"</Text>
         <Text style={styles.commandExample}>"Show Settings"</Text>
         <Text style={styles.commandExample}>"Go to Learn"</Text>
+        <Text style={styles.commandExample}>"Check Schemes"</Text>
       </View>
     </View>
   );
@@ -182,5 +231,11 @@ const styles = StyleSheet.create({
     color: '#555cb3',
     marginLeft: 10,
     marginVertical: 5,
+  },
+  micButtonProcessing: {
+    backgroundColor: '#ffd700',
+  },
+  processingIndicator: {
+    marginTop: 10,
   },
 });

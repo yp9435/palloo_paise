@@ -27,7 +27,7 @@ function FeatureCard({ title, description, icon, route, color }: FeatureCardProp
 }
 
 export default function Index() {
-  const userName = "User"; // This should come from your user state/context
+  const userName = "Yeshi"; // This should come from your user state/context
 
   const mainFeatures = [
     {
@@ -54,7 +54,7 @@ export default function Index() {
     {
       title: 'Govt. Schemes',
       description: 'Access government benefits',
-      icon: 'government' as keyof typeof Ionicons.glyphMap,
+      icon: 'business' as keyof typeof Ionicons.glyphMap,
       route: '/schemes',
       color: '#FF9800'
     },
