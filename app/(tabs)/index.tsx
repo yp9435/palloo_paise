@@ -3,7 +3,7 @@ import { Link } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { router } from 'expo-router';
 
-//change pannitan
+//change pannitan aaaaahhhhhhhhhh
 interface FeatureCardProps {
   title: string;
   description: string;
