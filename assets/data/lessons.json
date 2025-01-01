@@ -1,0 +1,106 @@
+{
+  "lessons": [
+    {
+      "contentId": "intro-01",
+      "type": "lesson",
+      "translations": {
+        "en": {
+          "title": "What is Money?",
+          "text": "Money is a tool we use to buy things and save for our future. Think of it like seeds - if you plant them wisely, they grow into trees that give fruit. Similarly, when you handle money wisely, it can grow and help secure your future. Today, money comes in different forms: cash, bank accounts, and even digital payments through mobile phones.",
+          "audio": "/audio/en/what-is-money.mp3"
+        }
+      },
+      "difficulty": 1,
+      "tags": ["basics", "introduction", "fundamentals"],
+      "mediaUrls": [
+        "https://images.unsplash.com/photo-1633158829585-23ba8f7c8caf",
+        "https://example.com/videos/money-intro.mp4"
+      ]
+    },
+    {
+      "contentId": "savings-01",
+      "type": "lesson",
+      "translations": {
+        "en": {
+          "title": "Smart Saving Habits",
+          "text": "Saving money is like collecting water drops in a pot - every small amount matters! Start by saving just ₹10 each day. After one month, you'll have ₹300! Here are three simple rules: 1) Save before you spend 2) Keep saved money separate from spending money 3) Write down your savings goal where you can see it daily. Remember: small, regular savings are better than irregular large amounts.",
+          "audio": "/audio/en/saving-habits.mp3"
+        }
+      },
+      "difficulty": 1,
+      "tags": ["savings", "habits", "practical tips"],
+      "mediaUrls": [
+        "https://images.unsplash.com/photo-1579621970795-87facc2f976d",
+        "https://example.com/images/savings-tracker.jpg"
+      ]
+    },
+    {
+      "contentId": "banking-01",
+      "type": "lesson",
+      "translations": {
+        "en": {
+          "title": "Your First Bank Account",
+          "text": "A bank account is like a safe home for your money. To open one, you'll need: 1) An ID proof (Aadhaar card) 2) Address proof 3) A small amount of money to deposit. Many banks offer zero-balance accounts for women. Banking gives you: ATM card access, secure savings, and the ability to receive government benefits directly. Visit your nearest bank with a trusted family member to learn more.",
+          "audio": "/audio/en/first-account.mp3"
+        }
+      },
+      "difficulty": 2,
+      "tags": ["banking", "accounts", "documentation"],
+      "mediaUrls": [
+        "https://images.unsplash.com/photo-1601597111158-2fceff292cdc",
+        "https://example.com/videos/account-opening.mp4"
+      ]
+    },
+    {
+      "contentId": "security-01",
+      "type": "lesson",
+      "translations": {
+        "en": {
+          "title": "Keeping Your Money Safe",
+          "text": "Protect your money like you protect your home! Important safety rules: 1) Never share your PIN or passwords 2) Don't keep all your money in one place 3) Be careful of strangers offering quick money schemes 4) Keep your ATM card safe 5) Check your account regularly. If something seems wrong, talk to your bank immediately. Remember: legitimate banks never ask for your PIN over phone or messages.",
+          "audio": "/audio/en/money-safety.mp3"
+        }
+      },
+      "difficulty": 2,
+      "tags": ["security", "protection", "awareness"],
+      "mediaUrls": [
+        "https://images.unsplash.com/photo-1563013544-824ae1b704d3",
+        "https://example.com/images/security-tips.jpg"
+      ]
+    },
+    {
+      "contentId": "budgeting-01",
+      "type": "lesson",
+      "translations": {
+        "en": {
+          "title": "Simple Budgeting",
+          "text": "A budget is your money plan. Think of it like planning meals for the week. First, write down all money you receive (income). Then, list essential expenses like food and rent. The 50-30-20 rule can help: Use 50% for needs, 30% for wants, and save 20%. Keep track of spending in a notebook or your phone. Small expenses like tea and snacks add up - track everything!",
+          "audio": "/audio/en/basic-budgeting.mp3"
+        }
+      },
+      "difficulty": 2,
+      "tags": ["budgeting", "planning", "money management"],
+      "mediaUrls": [
+        "https://images.unsplash.com/photo-1554224155-6726b3ff858f",
+        "https://example.com/images/budget-template.jpg"
+      ]
+    },
+    {
+      "contentId": "emergency-01",
+      "type": "lesson",
+      "translations": {
+        "en": {
+          "title": "Building an Emergency Fund",
+          "text": "An emergency fund is your financial safety net. Start small: save one day's income each month. Aim to eventually save enough for 3 months of expenses. Keep this money separate from regular savings. Use it only for real emergencies like medical needs or urgent repairs. Having an emergency fund gives you peace of mind and prevents taking expensive loans in crisis times.",
+          "audio": "/audio/en/emergency-fund.mp3"
+        }
+      },
+      "difficulty": 3,
+      "tags": ["emergency", "planning", "financial security"],
+      "mediaUrls": [
+        "https://images.unsplash.com/photo-1518183214770-9cffbec72538",
+        "https://example.com/videos/emergency-planning.mp4"
+      ]
+    }
+  ]
+} 

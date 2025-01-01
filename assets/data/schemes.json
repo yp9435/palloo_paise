@@ -1,0 +1,148 @@
+{
+  "schemes": [
+    {
+      "schemeId": "pmjdy-01",
+      "title": "Pradhan Mantri Jan Dhan Yojana (PMJDY)",
+      "shortDescription": "Zero balance bank account with additional benefits like insurance coverage.",
+      "details": {
+        "description": "PMJDY is a national mission for financial inclusion. You can open a basic savings bank account with zero balance. The account comes with a RuPay debit card and accident insurance cover.",
+        "benefits": [
+          "No minimum balance required",
+          "RuPay debit card with ₹2 lakh accident coverage",
+          "Life insurance cover of ₹30,000",
+          "Easy access to loans and other financial services",
+          "Mobile banking access"
+        ],
+        "eligibility": [
+          "Indian citizen",
+          "Valid ID proof (Aadhaar)",
+          "No other bank account"
+        ],
+        "howToApply": [
+          "Visit nearest bank branch",
+          "Carry Aadhaar card and a passport size photo",
+          "Fill the application form",
+          "Submit documents to bank official"
+        ]
+      },
+      "category": ["banking", "insurance"],
+      "targetGroup": ["rural", "women", "low-income"],
+      "mediaUrls": [
+        "https://example.com/images/pmjdy.jpg",
+        "https://example.com/videos/pmjdy-guide.mp4"
+      ],
+      "links": {
+        "official": "https://pmjdy.gov.in",
+        "helpline": "1800-111-111"
+      }
+    },
+    {
+      "schemeId": "pmmy-02",
+      "title": "Pradhan Mantri MUDRA Yojana (PMMY)",
+      "shortDescription": "Small loans for business without collateral security.",
+      "details": {
+        "description": "MUDRA provides loans up to ₹10 lakh to small business owners. Perfect for starting or expanding small businesses like tailoring, beauty parlors, or small shops.",
+        "benefits": [
+          "No collateral required for loans up to ₹10 lakh",
+          "Three loan categories: Shishu (up to ₹50,000), Kishore (up to ₹5 lakh), and Tarun (up to ₹10 lakh)",
+          "Lower interest rates",
+          "Flexible repayment options"
+        ],
+        "eligibility": [
+          "18-65 years of age",
+          "Small business owner or planning to start one",
+          "Valid business proposal"
+        ],
+        "howToApply": [
+          "Visit nearest bank or microfinance institution",
+          "Submit business proposal",
+          "Provide identity and address proof",
+          "Fill loan application form"
+        ]
+      },
+      "category": ["business", "loans"],
+      "targetGroup": ["women", "entrepreneurs", "self-employed"],
+      "mediaUrls": [
+        "https://example.com/images/mudra.jpg",
+        "https://example.com/videos/mudra-guide.mp4"
+      ],
+      "links": {
+        "official": "https://www.mudra.org.in",
+        "helpline": "1800-180-1111"
+      }
+    },
+    {
+      "schemeId": "ujjwala-03",
+      "title": "Pradhan Mantri Ujjwala Yojana",
+      "shortDescription": "Free LPG connection for women from BPL households.",
+      "details": {
+        "description": "Get a free LPG connection for your household. This scheme helps replace unhealthy cooking fuels like wood with clean LPG gas, improving health and saving time.",
+        "benefits": [
+          "Free LPG connection",
+          "First LPG cylinder free",
+          "EMI facility for stove and refills",
+          "Safety training provided",
+          "Improved health benefits"
+        ],
+        "eligibility": [
+          "Adult woman from BPL household",
+          "No existing LPG connection",
+          "Aadhaar card holder"
+        ],
+        "howToApply": [
+          "Visit nearest LPG distributor",
+          "Submit filled application form",
+          "Provide Aadhaar card and BPL certificate",
+          "Submit bank account details"
+        ]
+      },
+      "category": ["household", "health"],
+      "targetGroup": ["rural", "women", "BPL"],
+      "mediaUrls": [
+        "https://example.com/images/ujjwala.jpg",
+        "https://example.com/videos/ujjwala-guide.mp4"
+      ],
+      "links": {
+        "official": "https://pmuy.gov.in",
+        "helpline": "1800-266-6696"
+      }
+    },
+    {
+      "schemeId": "sukanya-04",
+      "title": "Sukanya Samriddhi Yojana",
+      "shortDescription": "Special savings scheme for girl child with high interest rates.",
+      "details": {
+        "description": "A government-backed savings scheme for girls under 10 years. Earn high interest rates and get tax benefits. Perfect for saving for your daughter's education or marriage.",
+        "benefits": [
+          "High interest rate (currently 8.0% p.a.)",
+          "Tax benefits under Section 80C",
+          "Minimum deposit ₹250 per year",
+          "Maximum deposit ₹1.5 lakh per year",
+          "Account matures after 21 years"
+        ],
+        "eligibility": [
+          "Girl child below 10 years",
+          "Indian resident",
+          "Only one account per girl child (maximum two accounts for family)"
+        ],
+        "howToApply": [
+          "Visit nearest post office or authorized bank",
+          "Fill account opening form",
+          "Submit girl's birth certificate",
+          "Provide parent's ID proof",
+          "Make initial deposit"
+        ]
+      },
+      "category": ["savings", "education"],
+      "targetGroup": ["girls", "parents"],
+      "mediaUrls": [
+        "https://example.com/images/sukanya.jpg",
+        "https://example.com/videos/sukanya-guide.mp4"
+      ],
+      "links": {
+        "official": "https://www.nsiindia.gov.in",
+        "helpline": "1800-180-1235"
+      }
+    }
+  ]
+} 

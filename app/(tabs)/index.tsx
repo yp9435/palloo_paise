@@ -1,6 +1,7 @@
 import { StyleSheet, View, Text, ScrollView, Pressable, Image } from 'react-native';
 import { Link } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
+import { router } from 'expo-router';
 
 //change pannitan
 interface FeatureCardProps {
@@ -26,87 +27,130 @@ function FeatureCard({ title, description, icon, route, color }: FeatureCardProp
 }
 
 export default function Index() {
-  const features = [
+  const userName = "User"; // This should come from your user state/context
+
+  const mainFeatures = [
     {
       title: 'Learn',
-      description: 'Master financial concepts through interactive lessons',
-      icon: 'book',
+      description: 'Access educational content library',
+      icon: 'book' as keyof typeof Ionicons.glyphMap,
       route: '/learn',
       color: '#4CAF50'
     },
     {
-      title: 'Budget',
-      description: 'Track your expenses and manage your money',
-      icon: 'wallet',
+      title: 'Track Expenses',
+      description: 'Manage your daily expenses',
+      icon: 'wallet' as keyof typeof Ionicons.glyphMap,
       route: '/budget',
       color: '#2196F3'
     },
     {
-      title: 'Voice Control',
-      description: 'Navigate the app using voice commands',
-      icon: 'mic',
-      route: '/voice',
+      title: 'Reports',
+      description: 'View financial insights',
+      icon: 'bar-chart' as keyof typeof Ionicons.glyphMap,
+      route: '/report',
       color: '#9C27B0'
     },
     {
-      title: 'Settings',
-      description: 'Customize your app experience',
-      icon: 'settings',
-      route: '/settings',
+      title: 'Govt. Schemes',
+      description: 'Access government benefits',
+      icon: 'government' as keyof typeof Ionicons.glyphMap,
+      route: '/schemes',
       color: '#FF9800'
+    },
+  ];
+
+  const quickActions = [
+    {
+      title: 'Voice Commands',
+      icon: 'mic' as keyof typeof Ionicons.glyphMap,
+      route: '/voice',
+      color: '#E91E63'
+    },
+    {
+      title: 'Accessibility',
+      icon: 'accessibility' as keyof typeof Ionicons.glyphMap,
+      route: '/settings/accessibility',
+      color: '#009688'
     },
   ];
 
   return (
     <ScrollView style={styles.container}>
-      {/* Hero Section */}
-      <View style={styles.heroSection}>
-        <Text style={styles.heroTitle}>Palloo Paise</Text>
-        <Text style={styles.heroSubtitle}>Your Financial Journey Starts Here</Text>
-        <View style={styles.statsContainer}>
-          <View style={styles.statItem}>
-            <Text style={styles.statNumber}>1M+</Text>
-            <Text style={styles.statLabel}>Users</Text>
-          </View>
-          <View style={styles.statDivider} />
-          <View style={styles.statItem}>
-            <Text style={styles.statNumber}>50+</Text>
-            <Text style={styles.statLabel}>Lessons</Text>
-          </View>
-          <View style={styles.statDivider} />
-          <View style={styles.statItem}>
-            <Text style={styles.statNumber}>4.8</Text>
-            <Text style={styles.statLabel}>Rating</Text>
-          </View>
+      {/* Greeting Section */}
+      <View style={styles.greetingSection}>
+        <Text style={styles.appTitle}>Palloo Paise</Text>
+        <View style={styles.titleDivider} />
+        <Text style={styles.greeting}>Welcome, {userName}!</Text>
+      </View>
+
+      {/* Main Features Grid */}
+      <View style={styles.section}>
+        <Text style={styles.sectionTitle}>Features</Text>
+        <View style={styles.featuresGrid}>
+          {mainFeatures.map((feature, index) => (
+            <FeatureCard key={index} {...feature} />
+          ))}
         </View>
       </View>
 
-      {/* Features Grid */}
-      <View style={styles.featuresGrid}>
-        {features.map((feature, index) => (
-          <FeatureCard key={index} {...feature} />
-        ))}
+      {/* Quick Actions */}
+      <View style={styles.section}>
+        <Text style={styles.sectionTitle}>Quick Actions</Text>
+        <View style={styles.quickActionsContainer}>
+          {quickActions.map((action, index) => (
+            <Link key={index} href={action.route} asChild>
+              <Pressable style={styles.quickActionButton}>
+                <Ionicons name={action.icon} size={24} color={action.color} />
+                <Text style={styles.quickActionText}>{action.title}</Text>
+              </Pressable>
+            </Link>
+          ))}
+        </View>
       </View>
 
-      {/* About Us Section */}
-      <View style={[styles.aboutSection, { paddingVertical: 30 }]}>
-        <Text style={[styles.whyTitle, { textAlign: 'center', marginBottom: 20 }]}>Why Palloo Paise?</Text>
-        
-        {/* Logo */}
-        <View style={styles.logoContainer}>
+      {/* About Section */}
+      <View style={styles.aboutSection}>
+        <View style={styles.headerRow}>
+          <Text style={styles.whyTitle}>Why Palloo Paise?</Text>
           <Image 
             source={require('../../assets/images/palloologo.png')}
-            style={[styles.logo, { width: 150, height: 150 }]}
+            style={styles.logo}
             resizeMode="contain"
           />
         </View>
 
-        <View style={[styles.whySection, { marginTop: 20 }]}>
-          <Text style={styles.whyText}>
-            Rural women in India often keep their valuables tucked in the palloo of their 
-            saree or in their blouse. The name reflects the cultural significance and aims 
-            to resonate with the daily lives of these women.
-          </Text>
+        <View style={styles.whyContainer}>
+          <View style={styles.whyCard}>
+            <Ionicons name="heart-outline" size={24} color="#555cb3" style={styles.whyIcon} />
+            <Text style={styles.whyHeading}>Cultural Connection</Text>
+            <Text style={styles.whyText}>
+              Inspired by rural Indian women who traditionally keep valuables in their saree's palloo
+            </Text>
+          </View>
+
+          <View style={styles.whyCard}>
+            <Ionicons name="people-outline" size={24} color="#555cb3" style={styles.whyIcon} />
+            <Text style={styles.whyHeading}>Community Focus</Text>
+            <Text style={styles.whyText}>
+              Designed to resonate with and empower women in their daily financial journey
+            </Text>
+          </View>
+        </View>
+
+        <View style={styles.creatorsSection}>
+          <Text style={styles.creatorsTitle}>Created by</Text>
+          <View style={styles.creatorLinks}>
+            <Link href="https://www.linkedin.com/in/yeshaswiprakash/" style={styles.creatorLink}>
+              <Text style={styles.creatorName}>Yeshaswi</Text>
+              <Ionicons name="open-outline" size={16} color="#555cb3" />
+            </Link>
+            <Text style={styles.creatorSeparator}>&</Text>
+            <Link href="https://www.linkedin.com/in/imgaya3/" style={styles.creatorLink}>
+              <Text style={styles.creatorName}>Gayathri</Text>
+              <Ionicons name="open-outline" size={16} color="#555cb3" />
+            </Link>
+          </View>
         </View>
       </View>
     </ScrollView>
@@ -118,52 +162,31 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#e2e3f7',
   },
-  heroSection: {
+  greetingSection: {
     backgroundColor: '#555cb3',
-    padding: 30,
-    paddingTop: 60,
+    padding: 20,
     borderBottomLeftRadius: 30,
     borderBottomRightRadius: 30,
-    alignItems: 'center',
   },
-  heroTitle: {
-    fontSize: 42,
+  greeting: {
+    fontSize: 28,
     fontWeight: 'bold',
-    color: '#e2e3f7',
-    marginBottom: 10,
+    color: '#ffffff',
+    marginBottom: 5,
   },
-  heroSubtitle: {
-    fontSize: 18,
-    color: '#e2e3f7',
+  greetingSubtitle: {
+    fontSize: 16,
+    color: '#ffffff',
     opacity: 0.9,
-    marginBottom: 30,
-    textAlign: 'center',
   },
-  statsContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    alignItems: 'center',
-    width: '100%',
-    paddingHorizontal: 20,
+  section: {
+    padding: 15,
   },
-  statItem: {
-    alignItems: 'center',
-  },
-  statNumber: {
-    fontSize: 24,
+  sectionTitle: {
+    fontSize: 18,
     fontWeight: 'bold',
-    color: '#f5c116',
-  },
-  statLabel: {
-    fontSize: 14,
-    color: '#e2e3f7',
-    opacity: 0.8,
-  },
-  statDivider: {
-    height: 30,
-    width: 1,
-    backgroundColor: '#e2e3f7',
-    opacity: 0.2,
+    color: '#555cb3',
+    marginBottom: 15,
   },
   featuresGrid: {
     flexDirection: 'row',
@@ -214,47 +237,6 @@ const styles = StyleSheet.create({
     shadowRadius: 4,
     elevation: 3,
   },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    color: '#555cb3',
-    marginBottom: 15,
-  },
-  aboutText: {
-    fontSize: 14,
-    color: '#666',
-    lineHeight: 22,
-    marginBottom: 20,
-  },
-  missionContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-  },
-  missionItem: {
-    flex: 1,
-    alignItems: 'center',
-    padding: 15,
-  },
-  missionTitle: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    color: '#555cb3',
-    marginVertical: 10,
-  },
-  missionText: {
-    fontSize: 12,
-    color: '#666',
-    textAlign: 'center',
-    lineHeight: 18,
-  },
-  logoContainer: {
-    alignItems: 'center',
-    marginBottom: 20,
-  },
-  logo: {
-    width: 120,
-    height: 120,
-  },
   whySection: {
     backgroundColor: '#f8f8f8',
     padding: 15,
@@ -267,10 +249,106 @@ const styles = StyleSheet.create({
     color: '#555cb3',
     marginBottom: 10,
   },
+  creatorsSection: {
+    marginTop: 20,
+    alignItems: 'center',
+  },
+  creatorsTitle: {
+    fontSize: 14,
+    color: '#666',
+    marginBottom: 8,
+  },
+  creatorLinks: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  creatorLink: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: 8,
+  },
+  creatorName: {
+    fontSize: 14,
+    color: '#555cb3',
+    fontWeight: '500',
+    marginRight: 4,
+  },
+  creatorSeparator: {
+    marginHorizontal: 8,
+    color: '#666',
+  },
+  quickActionsContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    marginBottom: 15,
+  },
+  quickActionButton: {
+    alignItems: 'center',
+    backgroundColor: 'white',
+    padding: 15,
+    borderRadius: 12,
+    width: '45%',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 3,
+  },
+  quickActionText: {
+    marginTop: 8,
+    fontSize: 14,
+    color: '#555cb3',
+    fontWeight: '500',
+  },
+  headerRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 20,
+  },
+  whyContainer: {
+    gap: 15,
+  },
+  whyCard: {
+    backgroundColor: '#f8f8f8',
+    padding: 15,
+    borderRadius: 12,
+    borderLeftWidth: 4,
+    borderLeftColor: '#555cb3',
+  },
+  whyIcon: {
+    marginBottom: 10,
+  },
+  whyHeading: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#555cb3',
+    marginBottom: 8,
+  },
+  logo: {
+    width: 80,
+    height: 80,
+  },
   whyText: {
     fontSize: 14,
     color: '#666',
-    lineHeight: 22,
-    fontStyle: 'italic',
+    lineHeight: 20,
+  },
+  appTitle: {
+    fontSize: 42,
+    fontWeight: 'bold',
+    color: '#f5c116',  // Golden color
+    marginBottom: 10,
+    textShadowColor: 'rgba(0, 0, 0, 0.2)',
+    textShadowOffset: { width: 1, height: 1 },
+    textShadowRadius: 3,
+  },
+  titleDivider: {
+    height: 2,
+    width: 100,
+    backgroundColor: '#f5c116',
+    marginBottom: 15,
+    opacity: 0.7,
   },
 });
