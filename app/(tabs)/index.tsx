@@ -2,6 +2,7 @@ import { StyleSheet, View, Text, ScrollView, Pressable, Image } from 'react-nati
 import { Link } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 
+//change pannitan
 interface FeatureCardProps {
   title: string;
   description: string;
